@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+Create `.env` file in the root folder. It needs 2 variables: 
+- REACT_APP_NUTRI_API_APP_ID - nutritionix application ID,
+- REACT_APP_NUTRI_API_APP_SECRET - nutritionix secret key.
+
 ## Available Scripts
 
 In the project directory, you can run:
