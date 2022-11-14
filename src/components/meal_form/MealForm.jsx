@@ -1,12 +1,12 @@
 import './MealForm.css';
 import {useRef} from 'react';
 
-function MealForm(props) {
+export default function MealForm({setBody}) {
   const mealRef = useRef(null);
 
   return (
     <form onSubmit={(e) => {
-      props.fetchMeals(mealRef.current.value);
+      setBody({query: mealRef.current.value});
       e.preventDefault();
     }}>
       <label>
@@ -17,5 +17,3 @@ function MealForm(props) {
     </form>
   )
 }
-
-export default MealForm;

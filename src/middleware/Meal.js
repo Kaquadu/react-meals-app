@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+// depreciated
 const Meal = {
   CURRENT_MEAL: [],
 

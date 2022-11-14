@@ -1,9 +1,10 @@
-function MealDescription(props) {
+function MealDescription({meals}) {
   let mealIngriedientsList = null;
-  if (!props.meals) {
+
+  if (!meals) {
     mealIngriedientsList = null;
   } else {
-    mealIngriedientsList = props.meals.map((ingriedient) => {
+    mealIngriedientsList = meals.map((ingriedient) => {
       return (
         <li key={ingriedient.food_name}>
           Name: {ingriedient.food_name}, calories: {ingriedient.nf_calories}
