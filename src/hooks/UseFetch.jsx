@@ -7,7 +7,8 @@ export default function useFetch(url, body, headers) {
   
   useEffect(() => {
     let cancelRequest = false;
-    if (!body) return;
+    console.log(body)
+    if (!body || body.query === "") return;
 
     if (cancelRequest) return;
     setStatus('fetching');

@@ -6,7 +6,7 @@ import useFetch from './hooks/UseFetch'
 // import Meal from './middleware/Meal';
 
 function App() {
-  const [body, setBody] = useState('');
+  const [body, setBody] = useState({query: ""});
 
   let headers = {
     'Content-Type': 'application/json',
