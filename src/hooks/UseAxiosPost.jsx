@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useFetch(url, body, headers) {
+export default function useAxiosPost(url, body, headers) {
   const [data, setData] = useState([])
   const [status, setStatus] = useState('idle')
   
