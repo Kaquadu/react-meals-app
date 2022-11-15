@@ -2,18 +2,13 @@ import './App.css';
 import MealForm from './components/meal_form/MealForm';
 import MealDescription from './components/meal_description/MealDescription';
 import { useState } from 'react';
-import useAxiosPost from './hooks/UseAxiosPost'
+import useApiPost from './hooks/UseApiPost'
 // import Meal from './middleware/Meal';
 
 function App() {
   const [body, setBody] = useState({query: ""});
 
-  let headers = {
-    'Content-Type': 'application/json',
-    'x-app-id': process.env.REACT_APP_NUTRI_API_APP_ID,
-    'x-app-key': process.env.REACT_APP_NUTRI_API_APP_SECRET
-  }
-  const {data, status} = useAxiosPost('https://trackapi.nutritionix.com/v2/natural/nutrients', body, headers);
+  const {data, status} = useApiPost('https://trackapi.nutritionix.com/v2/natural/nutrients', body);
 
   return (
     <div>

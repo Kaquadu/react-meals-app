@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function useAxiosPost(url, body, headers) {
+export default function useApiPost(url, body) {
   const [data, setData] = useState([])
   const [status, setStatus] = useState('idle')
   
   useEffect(() => {
-    let cancelRequest = false;
-    console.log(body)
+    const headers = {
+      'Content-Type': 'application/json',
+      'x-app-id': process.env.REACT_APP_NUTRI_API_APP_ID,
+      'x-app-key': process.env.REACT_APP_NUTRI_API_APP_SECRET
+    }
+
     if (!body || body.query === "") return;
 
-    if (cancelRequest) return;
     setStatus('fetching');
     axios.post(url, body, {headers: headers})
       .then((response) => {
@@ -19,14 +22,9 @@ export default function useAxiosPost(url, body, headers) {
       })
       .catch((error) => {
         console.log(error);
-        cancelRequest = true;
         setStatus('fetch_error');
       });
-
-    return function cleanup() {
-      cancelRequest = true;
-    };
-  }, [url, body, headers]);
+  }, [url, body]);
 
   return {data, status};
 }
