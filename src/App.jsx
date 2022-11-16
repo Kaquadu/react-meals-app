@@ -6,7 +6,6 @@ import useApiPost from './hooks/UseApiPost'
 
 function App() {
   const [body, setBody] = useState({query: ""});
-
   const {data, status} = useApiPost('https://trackapi.nutritionix.com/v2/natural/nutrients', body);
 
   return (
